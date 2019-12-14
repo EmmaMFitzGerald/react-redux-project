@@ -1,32 +1,36 @@
-class Api::VI::PostsController < ApplicationController
+module Api
+    module V1
+        class PostsController < ApplicationController
 
-    before_action :set_user
+        before_action :set_user
 
-    def index
-       @posts = @user.posts
-       render json: @posts
-    end
-
-    def show
-        @post = Post.find(param[:id])
-        render json: @post
-    end
-
-    def create
-        @post = @user.posts.new(post_params)
-        if @post.save
-            render json: @post
-        else 
-            render json: {error: 'Error saving post'}
+        def index
+        @posts = @user.posts
+        render json: @posts
         end
-    end 
 
-    def set_user
-        @user = User.find(params[:user_id])
-    end 
-    
-    def post_params 
-        params.require(:post).permit(:title, :category, :content)
-    end 
+        def show
+            @post = Post.find(param[:id])
+            render json: @post
+        end
 
-end
+        def create
+            @post = @user.posts.new(post_params)
+            if @post.save
+                render json: @post
+            else 
+                render json: {error: 'Error saving post'}
+            end
+        end 
+
+        def set_user
+            @user = User.find(params[:user_id])
+        end 
+        
+        def post_params 
+            params.require(:post).permit(:title, :category, :content)
+        end 
+
+    end
+  end
+end     
