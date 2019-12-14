@@ -1,4 +1,4 @@
-class API::VI::PostsController < ApplicationController
+class Api::VI::PostsController < ApplicationController
 
     before_action :set_user
 
@@ -15,7 +15,7 @@ class API::VI::PostsController < ApplicationController
     def create
         @post = @user.posts.new(post_params)
         if @post.save
-            render json :@post
+            render json: @post
         else 
             render json: {error: 'Error saving post'}
         end
