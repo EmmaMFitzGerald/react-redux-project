@@ -1,11 +1,11 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {addUser} from '../actions/addUser'
 
 class UserInput extends React.Component {
 
     state = {
-        title: '',
-        category: '',
-        content: ''
+       name: ''
     }
 
     handleChange = (event) => {
@@ -14,20 +14,18 @@ class UserInput extends React.Component {
         })
     }
 
-    handleSubmit = () => {
-        
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.addUser(this.state)
     }
 
     render(){
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Title: </label>
-                    <input type='text' placeholder="Title" value={this.state.title} name='title' onChange={this.handleChange}></input><br/>
-                    <label>Category: </label>
-                    <input type='text' placeholder="Category" value={this.state.category} name='category' onChange={this.handleChange}></input><br/>
-                    <label>Post:  </label>
-                    <textarea placeholder="Post" value={this.state.post} name="content" onChange={this.handleChange}></textarea>
+                    <label>Name: </label>
+                    <input type='text' placeholder="Name" value={this.state.name} name='name' onChange={this.handleChange}></input><br/>
+
                     <button type="submit" value="Submit">Submit</button>
                 </form>
             </div>
@@ -35,4 +33,4 @@ class UserInput extends React.Component {
     }
 }
 
-export default UserInput
+export default connect(null, { addUser })(UserInput)
