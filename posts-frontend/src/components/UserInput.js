@@ -24,8 +24,7 @@ class UserInput extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Name: </label>
-                    <input type='text' placeholder="Name" value={this.state.name} name='name' onChange={this.handleChange}></input><br/>
-
+                    <input type='text' placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}></input><br/>
                     <button type="submit" value="Submit">Submit</button>
                 </form>
             </div>
@@ -33,4 +32,4 @@ class UserInput extends React.Component {
     }
 }
 
-export default connect(null, { addUser })(UserInput)
+export default connect(null, {addUser})(UserInput)

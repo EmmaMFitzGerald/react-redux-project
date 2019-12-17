@@ -1,13 +1,14 @@
 export const addUser = (data) => {
-    debugger
-    return(dispatch) => {
+    return (dispatch) => {
     fetch('http://localhost:3000/api/v1/users', {
-        method: 'POST',
         headers: {
-            'Content-Type': 'application.json',
+            'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
+        method: 'POST',
         body: JSON.stringify(data)
-    })
+        })
+        .then(response => response.json())
+        .then(user => dispatch({type: 'ADD_ACCOUNT', payload: user}))
   }
 }
