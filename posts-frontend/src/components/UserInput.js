@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addUser} from '../actions/addUser'
 
+
 class UserInput extends React.Component {
 
     state = {

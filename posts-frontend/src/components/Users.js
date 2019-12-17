@@ -8,7 +8,8 @@ const Users = (props) => {
     return (
         <div>
             {props.users.map(user => 
-                <div key={user.id}> <User user={user}/></div>)}
+                <div key={user.id}> 
+                <Link to={`/users/${user.id}`}>{user.name}</Link></div>)}
         </div>
     )
 }
