@@ -1,4 +1,3 @@
-
 export function fetchUsers(){
     return(dispatch) => {
     fetch('http://localhost:3000/api/v1/users')
