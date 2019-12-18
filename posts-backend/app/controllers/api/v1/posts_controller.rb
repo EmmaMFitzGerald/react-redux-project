@@ -1,12 +1,10 @@
-module Api
-    module V1
-        class PostsController < ApplicationController
+class Api::V1::PostsController < ApplicationController
 
         before_action :set_user
 
         def index
-        @posts = @user.posts
-        render json: @posts
+            @posts = @user.posts
+            render json: @posts
         end
 
         def show
@@ -17,20 +15,20 @@ module Api
         def create
             @post = @user.posts.new(post_params)
             if @post.save
-                render json: @post
+                render json: @user
             else 
                 render json: {error: 'Error saving post'}
             end
         end 
 
+        private
         def set_user
             @user = User.find(params[:user_id])
         end 
         
         def post_params 
-            params.require(:post).permit(:title, :category, :content)
+            params.require(:post).permit(:title, :category, :content, :user_id)
         end 
 
-    end
-  end
-end     
+end
+  

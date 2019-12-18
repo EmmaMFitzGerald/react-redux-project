@@ -7,7 +7,7 @@ class PostsContainer extends React.Component {
     render() {
         return (
             <div>
-                <PostInput/>
+                <PostInput user={this.props.user}/>
                 <Posts posts={this.props.user && this.props.user.posts}/>
             </div>
         )

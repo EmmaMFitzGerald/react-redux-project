@@ -1,12 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addUser} from '../actions/addUser'
+import {addPost} from '../actions/addPost'
 
 class PostInput extends React.Component {
 
     state = {
         title: '',
-        category: '',
+        category: 'Comedy',
         content: ''
     }
 
@@ -16,9 +16,14 @@ class PostInput extends React.Component {
         })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = (event) => {    
         event.preventDefault()
-        this.props.addUser(this.state)
+        this.props.addPost(this.state, this.props.user.id)
+        this.setState({
+            title: '',
+            category: 'Comedy',
+            content: ''
+        })
     }
 
     render(){
@@ -28,7 +33,13 @@ class PostInput extends React.Component {
                     <label>Title: </label>
                     <input type='text' placeholder="Title" value={this.state.title} name='title' onChange={this.handleChange}></input><br/>
                     <label>Category: </label>
-                    <input type='text' placeholder="Category" value={this.state.category} name='category' onChange={this.handleChange}></input><br/>
+                    <select name='category' value={this.state.category} onChange={this.handleChange}>
+                        <option>Comedy</option>
+                        <option>True Crime</option>
+                        <option>Scary</option>
+                        <option>Reality</option>
+                        <option>Thriller</option>
+                    </select><br/>
                     <label>Post:  </label>
                     <textarea placeholder="Post" value={this.state.post} name="content" onChange={this.handleChange}></textarea>
                     <button type="submit" value="Submit">Submit</button>
@@ -38,4 +49,4 @@ class PostInput extends React.Component {
     }
 }
 
-export default connect(null, { addUser })(PostInput)
+export default connect(null, {addPost})(PostInput)
