@@ -22,7 +22,7 @@ class PostInput extends React.Component {
         this.setState({
             title: '',
             category: 'Comedy',
-            content: ''
+            content: " "
         })
     }
 

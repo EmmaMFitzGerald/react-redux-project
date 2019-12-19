@@ -21,6 +21,13 @@ class Api::V1::PostsController < ApplicationController
             end
         end 
 
+        def destroy
+            @post = Post.find(params[:id])
+            @user = User.find(@post.user_id)
+            @post.destroy 
+            render json: @user  
+        end 
+
         private
         def set_user
             @user = User.find(params[:user_id])
