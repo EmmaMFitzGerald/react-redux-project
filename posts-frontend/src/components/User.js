@@ -1,10 +1,10 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
+import UserEdit from './UserEdit'
 import PostsContainer from '../containers/PostsContainer'
 
 
 const User = (props) => {
-
-   console.log(props.users)
 
    let user = props.users.filter(user => user.id == props.match.params.id)[0]
    
@@ -12,6 +12,7 @@ const User = (props) => {
         <div>
               <h1>{user ? user.name : null}</h1>
               <PostsContainer user={user}/>
+              <p>Edit Username</p><UserEdit user={user} />
         </div>
     )
 }

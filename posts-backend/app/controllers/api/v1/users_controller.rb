@@ -26,6 +26,13 @@ module Api
             @user.destroy
         end
 
+        def update
+            @user = User.find(params[:id])
+            @user.update(name: params["user"]["name"])
+            @user.save
+            render json: @user
+        end
+
         private
         
         def user_params 
