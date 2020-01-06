@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Route, Link} from 'react-router-dom'
 import {deletePost} from '../actions/deletePost'
 
 

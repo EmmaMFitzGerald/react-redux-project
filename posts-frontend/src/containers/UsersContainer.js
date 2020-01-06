@@ -5,6 +5,7 @@ import {fetchUsers} from '../actions/fetchUsers'
 import Users from '../components/Users'
 import User from '../components/User'
 import UserInput from '../components/UserInput'
+import Post from '../components/Post'
 
 
 class UsersContainer extends React.Component {
@@ -18,8 +19,10 @@ class UsersContainer extends React.Component {
             <div>
             <Switch>
               <Route path='/users/new' component={UserInput}/>
-              <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users}/>}/>
-              <Route exact path='/users' render={(routerProps) => <Users {...routerProps} users={this.props.users}/>}/>
+              
+              <Route exact path='/users/:id' render={(routerProps) => <User user={this.props.users.filter(user => user.id == routerProps.match.params.id)[0]}/>}/>
+              <Route exact path='/' render={(routerProps) => <Users {...routerProps} users={this.props.users}/>}/>
+              <Route exact patch="/posts/:id" render={routerProps => <Post />} />
             </Switch>
             </div>
         )
