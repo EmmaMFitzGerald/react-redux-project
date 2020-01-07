@@ -1,18 +1,14 @@
 import React from 'react'
-
-const Post = (props) => {
-
+import PostEdit from './PostEdit'
 
 
-//    let post = props.posts.filter(post => post.id == props.match.params.id)[0]
-   
-
-
-   return (
-        <div>
-              <h1> Post </h1>
-        </div>
-    )
-}
-
-export default Post
+const Post = ({post}) => {
+    
+    return (
+         <div>
+               <p>Edit Username:</p><PostEdit post={post} />
+         </div>
+     )
+ }
+ 
+ export default Post

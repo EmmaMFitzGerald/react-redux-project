@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {addUser} from '../actions/addUser'
 
 
@@ -31,6 +32,7 @@ class UserInput extends React.Component {
                     <input type='text' placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}></input><br/>
                     <button type="submit" value="Submit">Submit</button>
                 </form>
+                <Link to='/' className='users'>Home</Link>
             </div>
         )
     }

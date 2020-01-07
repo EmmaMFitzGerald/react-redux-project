@@ -33,7 +33,7 @@ class PostInput extends React.Component {
                     <label>Title: </label>
                     <input type='text' placeholder="Title" value={this.state.title} name='title' onChange={this.handleChange}></input><br/>
                     <label>Category: </label>
-                    <select name='category' value={this.state.category} onChange={this.handleChange}>
+                    <select name='category' value={this.state.category} onChange={this.handleChange} id="category"> 
                         <option>Comedy</option>
                         <option>True Crime</option>
                         <option>Scary</option>

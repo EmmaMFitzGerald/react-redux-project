@@ -1,0 +1,33 @@
+.user-name {
+    font-family: Helvetica;
+    color: #800000;
+    margin: 8px 0;
+    padding: 10px;
+}
+
+.users {
+    font-family: Helvetica;
+    color: #800000;
+    padding: 10px;
+}
+
+* {
+    box-sizing: border-box
+  }
+  
+  html {
+    font-size: 100.5%;
+  }
+
+  input[type=text] {
+    width: 20%;
+    padding: 2px 2px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  #category{
+    width: 20%;
+    box-sizing: border-box;
+    margin: 12px 0;
+  }

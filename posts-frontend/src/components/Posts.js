@@ -10,8 +10,6 @@ const Posts = (props) => {
         props.deletePost(post.id, post.user_id)
     }
 
-    
-
     return (
         <div>
             {props.posts && props.posts.map(post => 
