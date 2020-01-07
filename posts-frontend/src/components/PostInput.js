@@ -22,7 +22,7 @@ class PostInput extends React.Component {
         this.setState({
             title: '',
             category: 'Comedy',
-            content: " "
+            content: ''
         })
     }
 
@@ -41,7 +41,7 @@ class PostInput extends React.Component {
                         <option>Thriller</option>
                     </select><br/>
                     <label>Post:  </label>
-                    <textarea placeholder="Post" value={this.state.post} name="content" onChange={this.handleChange}></textarea>
+                    <textarea placeholder="Post" name="content" value={this.state.content} onChange={this.handleChange}></textarea>
                     <button type="submit" value="Submit">Submit</button>
                 </form>
             </div>

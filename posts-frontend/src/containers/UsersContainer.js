@@ -13,6 +13,7 @@ class UsersContainer extends React.Component {
 
     componentDidMount(){
         this.props.fetchUsers();
+
         // this.props.fetchPosts()
     }
 
@@ -23,7 +24,7 @@ class UsersContainer extends React.Component {
               <Route path='/users/new' component={UserInput}/>
               <Route exact path='/users/:id' render={(routerProps) => <User user={this.props.users.filter(user => user.id == routerProps.match.params.id)[0]}/>}/>
               <Route exact path='/' render={(routerProps) => <Users {...routerProps} users={this.props.users}/>}/>
-              {/* <Route exact patch='/posts/:id' render={(routerProps) => <Post post={this.props.posts.filter(post => post.id == routerProps.match.params.id)[0]}/>}/> */}
+              <Route exact path='/posts/:id' render={(routerProps) => <Post post={this.props.users.map(u => u.posts).flat().filter(post => post.id == routerProps.match.params.id)[0]}/>}/>
             </Switch>
             </div>
         )

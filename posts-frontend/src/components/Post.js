@@ -3,12 +3,12 @@ import PostEdit from './PostEdit'
 
 
 const Post = ({post}) => {
-    
-    return (
+    return post ? (
          <div>
+             <p>{post.title}</p>
                <p>Edit Username:</p><PostEdit post={post} />
          </div>
-     )
+     ) : null
  }
  
  export default Post
