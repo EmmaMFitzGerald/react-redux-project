@@ -21,6 +21,15 @@ class Api::V1::PostsController < ApplicationController
             end
         end 
 
+        def update
+            @post = Post.find(params[:id])
+            @post.update(title: params["post"]["title"], 
+                category: params["post"]["category"], 
+                content: params["post"]["content"])
+            @post.save
+            render json: @post
+        end
+
         def destroy
             @post = Post.find(params[:id])
             @user = User.find(@post.user_id)

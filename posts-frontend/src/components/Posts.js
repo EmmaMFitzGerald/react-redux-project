@@ -1,8 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {deletePost} from '../actions/deletePost'
-
 
 const Posts = (props) => {
 
@@ -16,7 +15,7 @@ const Posts = (props) => {
                 <div>
                 <Link to={`/posts/${post.id}`}>{post.title}</Link>
                 <p>{post.category}</p>
-                <p>{post.content}</p><button onClick={() => handleDelete(post)}>Delete</button>
+                <p>{post.content}</p><button onClick={() => handleDelete(post)} class="btn btn-danger">Delete</button>
                 </div>)}
 
         </div>

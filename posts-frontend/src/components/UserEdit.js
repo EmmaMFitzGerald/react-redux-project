@@ -28,9 +28,9 @@ class UserEdit extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Name: </label>
-                    <input type='text' placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}></input><br/>
-                    <button type="submit" value="Submit">Submit</button>
+                    <label class="name">Name: </label>
+                    <input type="text" class="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}></input><br/>
+                    <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
                 </form>
             </div>
         )

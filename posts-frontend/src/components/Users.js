@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {deleteUser} from '../actions/deleteUser'
-import User from './User'
+
 
 
 const Users = (props) => {
@@ -13,11 +13,10 @@ const Users = (props) => {
     
     return (
         <div>
-            <p className="users">All Users</p>
+            <ul class="list-group list-group-flush">All Users</ul>
             {props.users.map(user => 
                 <div key={user.id}> 
-                <Link to={`/users/${user.id}`} className='user-name'>{user.name}</Link><button onClick={() => handleDelete(user)}>Delete</button></div>)}
-            <p><Link to='/users/new' className="users">Create New User</Link></p>
+                <li class="list-group-item"><Link to={`/users/${user.id}`} class="list-group-item">{user.name}</Link><button onClick={() => handleDelete(user)} class="btn btn-danger btn-sml">Delete</button></li></div>)}
         </div>
     )
 }

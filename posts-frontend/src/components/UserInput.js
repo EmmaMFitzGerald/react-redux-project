@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+
 import {addUser} from '../actions/addUser'
 
 
@@ -22,17 +22,19 @@ class UserInput extends React.Component {
         this.setState({
             name: ''
         })
+        this.props.history.push('/users');
+        window.location.reload(false);
     }
+
 
     render(){
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Name: </label>
-                    <input type='text' placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}></input><br/>
-                    <button type="submit" value="Submit">Submit</button>
+                    <input type="text" class="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}></input><br/>
+                    <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
                 </form>
-                <Link to='/' className='users'>Home</Link>
             </div>
         )
     }

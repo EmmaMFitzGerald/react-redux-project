@@ -24,13 +24,6 @@ export default function userReducer(state = { users:[] }, action){
             })}
         case 'DELETE_USER':
              return {users: state.users.filter(u => u.id !== action.payload.id)}
-            //  {users: state.users.map(user => {
-            //      if (user.id === action.payload.id){
-            //         return action.payload
-            //      } else {
-            //         return user
-            //     }
-            //  })}
         case 'EDIT_USER':
             return {...state, users: state.users.map(user => {
                 if (user.id === action.payload.id){
