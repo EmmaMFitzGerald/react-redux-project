@@ -5,10 +5,13 @@ import {editPost} from '../actions/editPost'
 
 class PostEdit extends React.Component {
 
-    state = {
-        title: '',
-        category: 'Comedy',
-        content: ''
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: props.title || "",
+            category: props.category || "",
+            content: props.content || ""
+        }
     }
 
     handleChange = (event) => {
@@ -17,9 +20,10 @@ class PostEdit extends React.Component {
         })
     }
 
-    handleSubmit = (event) => {    
+    handleSubmit = (event) => {   
+        debugger 
         event.preventDefault()
-        this.props.editPost(this.state, this.props.user.id)
+        this.props.editPost(this.state, this.props.post.user_id)
         this.setState({
             title: '',
             category: 'Comedy',

@@ -14,7 +14,7 @@ const Posts = (props) => {
         <div>
             {props.posts && props.posts.map(post => 
                 <div>
-                <li key={post.id}>{post.title}</li>
+                <Link to={`/posts/${post.id}`}>{post.title}</Link>
                 <p>{post.category}</p>
                 <p>{post.content}</p><button onClick={() => handleDelete(post)}>Delete</button>
                 </div>)}

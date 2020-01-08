@@ -3,10 +3,10 @@ import PostEdit from './PostEdit'
 
 
 const Post = ({post}) => {
+    
     return post ? (
          <div>
-             <p>{post.title}</p>
-               <p>Edit Username:</p><PostEdit post={post} />
+            <p>Edit Post:</p><PostEdit title={post.title} category={post.category} content={post.content}/>
          </div>
      ) : null
  }
